@@ -4,9 +4,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 driver = webdriver.Chrome()
-driver.get("C:/Users/Angel/Desktop/VVPS/index.html")  # ЗАМЕНИ с реалния път
+driver.get("C:/Users/Angel/Desktop/VVPS/index.html") 
 
-# Помощна функция за бързо въвеждане и натискане на бутона
 def perform_login(username, password):
     driver.find_element(By.ID, "username").clear()
     driver.find_element(By.ID, "password").clear()
@@ -57,7 +56,7 @@ def test_spaces_only():
     msg = driver.find_element(By.ID, "message").text
     assert "Моля, попълнете всички полета" in msg
 
-# Тест 8: Поставяне чрез клавиш Enter (допълнителен UI test)
+# Тест 8: Поставяне чрез клавиш Enter
 def test_enter_key_submit():
     driver.find_element(By.ID, "username").clear()
     driver.find_element(By.ID, "password").clear()
@@ -67,7 +66,6 @@ def test_enter_key_submit():
     assert "success.html" in driver.current_url
     driver.back()
 
-# Изпълнение на тестовете
 test_valid_login()
 test_invalid_password()
 test_invalid_username()
